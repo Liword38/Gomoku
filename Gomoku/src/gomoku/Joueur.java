@@ -43,7 +43,7 @@ public abstract class Joueur {
 	
 	/**
 	 * Demarre une partie contre j . Avant de lancer le deroulement du jeu, il faut
-	 * veiller a� etablir le lien entre les 2 joueurs et bien entendu verifier qu'il
+	 * veiller a etablir le lien entre les 2 joueurs et bien entendu verifier qu'il
 	 * puisse etre etabli
 	 */
 
@@ -57,7 +57,7 @@ public abstract class Joueur {
 		this.adversaire = j;
 		j.adversaire = this;
 		deroulementJeu(this, j);
-		this.adversaire = null; // si la partie est finie on reinitialise les joueurs a� null
+		this.adversaire = null; // si la partie est finie on reinitialise les joueurs a null
 		j.adversaire = null;
 	}
 	
