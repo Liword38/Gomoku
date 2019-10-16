@@ -65,7 +65,7 @@ public abstract class Joueur {
 			attaquant = defenseur;
 			defenseur = x;
 			try {
-			    Thread.sleep(300);                 //1000 milliseconds is one second.
+			    Thread.sleep(150);                 //1000 milliseconds is one second.
 			} catch(InterruptedException ex) {
 			    Thread.currentThread().interrupt();
 			}
