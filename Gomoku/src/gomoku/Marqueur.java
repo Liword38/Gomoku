@@ -10,18 +10,12 @@ public class Marqueur {
 		
 	}
 
+	//Return true si this est voisin de m (diagonales comprises)
 	public boolean touche(Coordonnee m) {
 		return this.coordonnee.voisine(m);
 	}
 	
-	
-	
 
-
-	
-
-
-	@Override
 	public String toString() {
 		return "Marqueur [" + coordonnee + ", croix=" + croix + "]";
 	}

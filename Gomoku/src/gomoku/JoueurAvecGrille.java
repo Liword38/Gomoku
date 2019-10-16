@@ -13,11 +13,15 @@ public abstract class JoueurAvecGrille extends Joueur{
 		super(g.getTaille(),isCroix);
 		this.grille=g;
 	}
+	
 	public Grille getGrille() {
 		return grille;
 	}
 
-	
+	/**
+	 * ajoute le marqueur adverse sur la grille et vérifie si l'adversaire a gagné avec ce coup ou pas
+	 * 
+	 */
 	public int defendre(Marqueur m) {
 		
 	if(grille.ajouteMarqueur(m) && grille.fiveInARow(m))
@@ -26,22 +30,7 @@ public abstract class JoueurAvecGrille extends Joueur{
 		return PASGAGNE;
 			
 	}	
-	/*	
-	if(grille.recoitTir(c)) {
-		if (grille.estCoule(c)) 
-			if (grille.perdu()) {
-				return super.GAMEOVER;
-			}else 
-				return super.COULE;
-		else  
-			return super.TOUCHE;
-			}
-	else 
-		return super.A_L_EAU;
-*/
-	//}
-	
-	
+
 	public static void main(String[] args) {
 
 	}

@@ -21,7 +21,7 @@ class JButtonCoordonnee extends JButton {
 	}
 }
 /**
- * Classe reprÃ©sentant un composant graphique "Grille". Une grille est composÃ©e
+ * Classe representant un composant graphique "Grille". Une grille est composee
  * de JButton
  * 
  * @author jerome.david@univ-grenoble-alpes.fr
@@ -43,7 +43,7 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	private Coordonnee coordonneeSelectionnee;
 
 	/**
-	 * Initialise une grille carrÃ©e de taille donnÃ©e
+	 * Initialise une grille carree de taille donnee
 	 * 
 	 * @param taille
 	 *            la taille de la grille
@@ -82,10 +82,10 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * Colorie la case indiquÃ©e par la coordonnÃ©e
+	 * Colorie la case indiquee par la coordonnee
 	 * 
 	 * @param coord
-	 *            la coordonnÃ©e de la case Ã  colorier
+	 *            la coordonnee de la case a  colorier
 	 * @param color
 	 *            la couleur de la case
 	 */
@@ -97,9 +97,9 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	 * Colorie le rectangle compris entre les deux coordonnees
 	 * 
 	 * @param debut
-	 *            CoordonnÃ©e du dÃ©but de la zone Ã  colorier (haut gauche)
+	 *            Coordonnee du debut de la zone a  colorier (haut gauche)
 	 * @param fin
-	 *            CoordonnÃ©e de la fin de la zone Ã  colorier (bas droit)
+	 *            Coordonnee de la fin de la zone a  colorier (bas droit)
 	 * @param color
 	 *            la couleur de la case
 	 */
@@ -133,8 +133,8 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 
 
 	/**
-	 * Methode appelÃ©e lorsque l'on clique sur une case de la grille.
-	 * Elle "reveille" la mÃ©thode getCoordonneeSelectionnee
+	 * Methode appelee lorsque l'on clique sur une case de la grille.
+	 * Elle "reveille" la methode getCoordonneeSelectionnee
 	 * 
 	 */
 	@Override
@@ -148,8 +148,8 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	
 	 /**
      * Attend que l'utilisateur selectionne (clic) sur une case de la grille et
-     * retourne la coordonnee qui a Ã©tÃ© selectionnÃ©e
-     * @return la coordonnÃ©e selectionnÃ©e
+     * retourne la coordonnee qui a ete selectionnee
+     * @return la coordonnee selectionnee
      */
     public synchronized Coordonnee getCoordonneeSelectionnee() {
         this.setClicActive(true);

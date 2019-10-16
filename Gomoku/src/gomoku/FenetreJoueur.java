@@ -75,7 +75,6 @@ public class FenetreJoueur extends JFrame {
 
 	/**
 	 * permet d'obtenir une fenêtre pour un joueur de nom nom avec des grilles de taille taille.
-	   Un placement de navires automatique sur grilleDefense peut être réalisé.
 	 * @param nom : nom de la fenêtre
 	 * @param taille : taille des grilles
 	 */

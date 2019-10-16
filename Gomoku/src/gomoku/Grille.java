@@ -23,11 +23,11 @@ public class Grille {
 		this.nbMarqueurs = 0;
 		this.nbRonds = 0;
 	}
-	
+
 	public Coordonnee[] getAllMarqueurs() {
 		return allMarqueurs;
 	}
-	
+
 	public int getnbMarqueurs() {
 		return nbMarqueurs;
 	}
@@ -67,11 +67,12 @@ public class Grille {
 	}
 
 	/**
-	 * Retourne true si et seulement si c est dans this.
+	 * Retourne true si et seulement si la Coordonne correspondant à [ligne,col] est
+	 * valide dans la grille this.
 	 * 
-	 * @param c : coordonnee.
-	 * @return : true si c est dans la grille, et false si c n'est pas dans la
-	 *         grille.
+	 * @param ligne, col : int
+	 * @return : true si la coord est valide dans la grille, et false si elle ne
+	 *         'lest pas
 	 */
 
 	private boolean estDansGrille(int ligne, int col) {
@@ -119,10 +120,11 @@ public class Grille {
 	}
 
 	/**
-	 * Cherche les voisins du même type que m (croix/rond)
+	 * Cherche les voisins (diagonales comprises) du même type que m (croix/rond)
 	 * 
 	 * @param m
-	 * @return tableau des Marqueur du même type que m et en contact avec m
+	 * @return tableau des Marqueur du même type que m et en contact avec m /!\ Le
+	 *         tableau retourné contient des valeurs null /!\
 	 */
 	private Marqueur[] voisins(Marqueur m) {
 		Marqueur[] res = new Marqueur[8];
@@ -147,6 +149,14 @@ public class Grille {
 		return res;
 	}
 
+	/**
+	 * Vérifie si m appartient à une ligne de 5 ou plus marqueurs de son type
+	 * (auquel cas la partie est gagnée)
+	 * 
+	 * @param m
+	 * @return true si m constitue une ligne de 5 ou plus marqueurs de son type
+	 */
+
 	public boolean fiveInARow(Marqueur m) {
 		Marqueur[][] lesLignes = this.lignesDeMarqueur(m);
 		for (int i = 0; i < lesLignes.length; i++) {
@@ -164,15 +174,17 @@ public class Grille {
 	}
 
 	/**
-	 * Pour un marqueur m donné, renvoie les différentes lignes dont il fait partie
-	 * sous forme des tableaux de marqueurs
+	 * Pour un marqueur m donné, renvoie un tableau des différentes lignes dont il
+	 * fait partie sous forme des tableaux de marqueurs. Attention méthode de 500
+	 * lignes, il est conseillé de la réduire :)
 	 * 
 	 * @param m: Marqueur à scanner
-	 * @return Un tableau contenant les lignes du marqueur m sous forme de tableau
-	 *         elles-mêmes
+	 * @return Un tableau contenant les lignes du marqueur m. Une ligne est un
+	 *         tableau de marqueurs
 	 */
 	private Marqueur[][] lignesDeMarqueur(Marqueur m) {
-		Marqueur[][] res = new Marqueur[8][9]; // 8 lignes maximum par points et 9 marqueurs maximum par ligne (si 4 de chaque côté et on pose un marqueur au milieu)
+		Marqueur[][] res = new Marqueur[8][9]; // 8 lignes maximum par points et 9 marqueurs maximum par ligne (si 4 de
+												// chaque côté et on pose un marqueur au milieu)
 		int resIndex = 0;
 		Marqueur[] voisins = voisins(m);
 		int mligne = m.getCoordonnee().getLigne();
@@ -683,11 +695,8 @@ public class Grille {
 	}
 
 	/**
-	 * Retourne une String reprÃ©sentant this. On souhaite obtenir une
-	 * reprÃ©sentation s'affichant sur la console de la faÃ§on suivante : A B C D E
-	 * F G H I J 1 . . . . . . . . . . 2 . . . # # # . . . . 3 . . . . . . # X # . 4
-	 * . . O . . . . O . . 5 . . . . . # . . . . 6 . . . O . # . . . . 7 . # # . . #
-	 * . . . . 8 . . . . . # . . . . 9 . . . . . . . O . . 10 . . . . . . . . . .
+	 * Retourne une String representant this. On souhaite obtenir une
+	 * représentation s'affichant sur la console.
 	 */
 
 	public String toString() {
@@ -695,7 +704,7 @@ public class Grille {
 		StringBuffer grilleNavale = new StringBuffer("  ");
 		char c = 'A';
 		int l = 1;
-		for (int i = 0; i < this.taille; i++) { // On crÃ©e la 1Ã¨re ligne
+		for (int i = 0; i < this.taille; i++) { // On cree la 1ere ligne
 			grilleNavale = grilleNavale.append(' ');
 			grilleNavale = grilleNavale.append(c);
 
@@ -796,15 +805,10 @@ public class Grille {
 
 		System.out.println(maGrille);
 
-
 		System.out.println(maGrille.ronds.toString());
 		System.out.println(maGrille.croix.toString());
 
-//		for (int i = 0; i < mesLignes.length; i++) {
-//			if (mesLignes[i] != null) {
-//				System.out.println(Arrays.toString(mesLignes[i]));
-//			}
-//		}
+
 
 	}
 

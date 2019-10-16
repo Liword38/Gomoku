@@ -20,17 +20,18 @@ public class JoueurIdiot extends JoueurAuto {
 		
 	}
 	
-
+	//Affiche des retours sur déroulement de la partie dans la console après avoir joué
 	protected void retourAttaque(Marqueur m, int etat) {
-		if (etat == super.GAGNE)
+		if (etat == GAGNE)
 			System.out.println( this.getNom() +" a gagné en jouant en "+m.getCoordonnee());
 		else  
 			System.out.println( this.getNom() + " joue en "+ m.getCoordonnee());
 
 	}
 	
+	//Affiche des retours sur déroulement de la partie dans la console après que l'adversaire ait joué
 	protected void retourDefense(Marqueur m, int etat) {
-		if (etat == super.GAGNE)
+		if (etat == GAGNE)
 			System.out.println(this.getNom() +" a perdu!");
 		else 
 			System.out.println( "a " + this.getNom() + " de jouer");
@@ -40,7 +41,7 @@ public class JoueurIdiot extends JoueurAuto {
 
 	/**
 	 * Cette méthode est invoquée sur le joueur attaquant au début d’un tour de jeu. Elle retourne
-	   la coordonnée cible du tir effectué par l’attaquant. 
+	   le marqueur que le joueur décide de jouer. (Marqueur = Coordonnees + Type) 
 	 */
 	public Marqueur choisirAttaque() {
 		int ligne = (int) (Math.random() * super.getGrille().getTaille());
@@ -53,7 +54,6 @@ public class JoueurIdiot extends JoueurAuto {
 			}
 		}
 		Marqueur coupChoisi = this.isCroix() ? new Marqueur(c, true) : new Marqueur (c, false);
-		//this.getGrille().ajouteMarqueur(coupChoisi);
 		return coupChoisi;
 			
 	}

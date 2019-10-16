@@ -14,6 +14,8 @@ public class JoueurTexte extends JoueurAvecGrille{
 		super(g, isCroix);
 	}
 	
+	//Affiche des retours sur déroulement de la partie dans la console après avoir joué
+
 	protected void retourAttaque(Marqueur m, int etat) {
 		if (etat == super.GAGNE)
 			System.out.println(this.getNom()+ " a gagné!");
@@ -21,6 +23,7 @@ public class JoueurTexte extends JoueurAvecGrille{
 			System.out.println( this.getNom() + " joue en "+ m.getCoordonnee());
 	}
 			
+	//Affiche des retours sur déroulement de la partie dans la console après que l'adversaire ait joué
 
 	protected void retourDefense(Marqueur m, int etat) {
 		if (etat == super.GAGNE)
@@ -29,6 +32,9 @@ public class JoueurTexte extends JoueurAvecGrille{
 			System.out.println( "a " +this.getNom() + " de jouer");
 	}
 	
+	/**
+	 * Permet de choisir une case à jouer en entrant dans la console une string du type "B12", crée un marqueur avec le type du joueur et les coordonnées input;
+	 */
 	public Marqueur choisirAttaque() {
 		Scanner sc = new Scanner(System.in);
 		String attaque;

@@ -28,6 +28,9 @@ public class GrilleDeJeu extends Grille{
 		}
 			
 		
+		/**
+		 * Ajoute un marqueur m � this et colorie la grille graphique de la couleur correspondant au type
+		 */
 		public boolean ajouteMarqueur(Marqueur m) {
 			if (super.ajouteMarqueur(m)) {
 				if (m.isCroix())
@@ -38,28 +41,7 @@ public class GrilleDeJeu extends Grille{
 			}
 			return false;
 		}
-		
-		/**
-		 * Spécialisation de la méthode héritée de GrilleNavale. 
-		 * La case correspondant au tir doit être coloriée en Color.RED 
-		 * si le tir a touché un navire ou en Color.BLUE s'il est à l'eau.
-		 * @param Coordonnee c
-		 * @return boolean
-		 */
-		
-//		public boolean recoitTir(Coordonnee c) {
-//			if (super.recoitTir(c)) {
-//				grille.colorie(c, Color.RED);
-//				//System.out.println("est touche");
-//				return true;
-//			} else if (super.estALEau(c)) {
-//				grille.colorie(c, Color.BLUE);
-//				//System.out.println("est a l'eau");
-//				return true;
-//			}
-//			return false;
-//		}
-//		
+			
 		
 		public static void main(String[] args) {
 			GrilleDeJeu g1 = new GrilleDeJeu(5);

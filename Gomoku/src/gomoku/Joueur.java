@@ -8,7 +8,7 @@ public abstract class Joueur {
 	private String nom;
 	private boolean isCroix;
 	
-	
+	//Constructeurs
 	public Joueur(int tailleGrille, String nom, boolean isCroix) {
 		this(tailleGrille, isCroix);
 		this.nom=nom;
@@ -21,6 +21,7 @@ public abstract class Joueur {
 
 	}
 	
+	//Getters
 	public int getTailleGrille() {
 		return tailleGrille;
 	}
@@ -35,13 +36,13 @@ public abstract class Joueur {
 	}
 	
 	/**
-	 * Démarre une partie contre j . Avant de lancer le déroulement du jeu, il faut
-	 * veiller à établir le lien entre les 2 joueurs et bien entendu vérifier qu’il
-	 * puisse être établi
+	 * Demarre une partie contre j . Avant de lancer le deroulement du jeu, il faut
+	 * veiller a� etablir le lien entre les 2 joueurs et bien entendu verifier qu'il
+	 * puisse etre etabli
 	 */
 
 	public void jouerAvec(Joueur j) {
-		if (this.adversaire != null || j.adversaire != null) { // vérification que les 2 joueurs ne sont pas utilisé
+		if (this.adversaire != null || j.adversaire != null) { // verification que les 2 joueurs ne sont pas utilises
 			System.out.println("Un des joueurs joue déjà avec quelqu'un d'autre !");
 			return;
 		} else {
@@ -50,7 +51,7 @@ public abstract class Joueur {
 		this.adversaire = j;
 		j.adversaire = this;
 		deroulementJeu(this, j);
-		this.adversaire = null; // si la partie est finie on réinitialise les joueurs à null
+		this.adversaire = null; // si la partie est finie on reinitialise les joueurs a� null
 		j.adversaire = null;
 	}
 	
@@ -65,7 +66,7 @@ public abstract class Joueur {
 			attaquant = defenseur;
 			defenseur = x;
 			try {
-			    Thread.sleep(150);                 //1000 milliseconds is one second.
+			    Thread.sleep(150);                 //1000 milliseconds is one second.  Permet d'observer le d�roulement de la partie. A mettre sur 0 pour des parties instantan�es.
 			} catch(InterruptedException ex) {
 			    Thread.currentThread().interrupt();
 			}
