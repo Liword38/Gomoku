@@ -27,7 +27,7 @@ public class JoueurTexte extends JoueurAvecGrille{
 
 	protected void retourDefense(Marqueur m, int etat) {
 		if (etat == super.GAGNE)
-			System.out.println(this.getNom()+" a perdu!");
+			System.out.println(this.getNom()+" a perdu !");
 		else 
 			System.out.println( "a " +this.getNom() + " de jouer");
 	}

@@ -21,6 +21,12 @@ public abstract class Joueur {
 
 	}
 	
+	public String getOpponentName() {
+		if (this.adversaire.getNom() != null)
+			return this.adversaire.getNom();
+		return ("Adversaire inconnu");
+	}
+	
 	//Getters
 	public int getTailleGrille() {
 		return tailleGrille;
@@ -43,10 +49,10 @@ public abstract class Joueur {
 
 	public void jouerAvec(Joueur j) {
 		if (this.adversaire != null || j.adversaire != null) { // verification que les 2 joueurs ne sont pas utilises
-			System.out.println("Un des joueurs joue dÃ©jÃ  avec quelqu'un d'autre !");
+			System.out.println("Un des joueurs joue de  avec quelqu'un d'autre !");
 			return;
 		} else {
-			System.out.println("DÃ©but de la partie, que le sort puisse vous Ãªtre favorable");
+			System.out.println("DÃ©but de la partie, que le sort puisse vous etre favorable");
 		}
 		this.adversaire = j;
 		j.adversaire = this;
@@ -66,7 +72,7 @@ public abstract class Joueur {
 			attaquant = defenseur;
 			defenseur = x;
 			try {
-			    Thread.sleep(150);                 //1000 milliseconds is one second.  Permet d'observer le déroulement de la partie. A mettre sur 0 pour des parties instantanées.
+			    Thread.sleep(0);                 //1000 milliseconds is one second.  Permet d'observer le déroulement de la partie. A mettre sur 0 pour des parties instantanées.
 			} catch(InterruptedException ex) {
 			    Thread.currentThread().interrupt();
 			}

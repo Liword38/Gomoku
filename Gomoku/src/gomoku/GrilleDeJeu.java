@@ -29,7 +29,7 @@ public class GrilleDeJeu extends Grille{
 			
 		
 		/**
-		 * Ajoute un marqueur m à this et colorie la grille graphique de la couleur correspondant au type
+		 * Ajoute un marqueur m à this et colorie la grille graphique de la couleur correspondant au type du marqueur
 		 */
 		public boolean ajouteMarqueur(Marqueur m) {
 			if (super.ajouteMarqueur(m)) {

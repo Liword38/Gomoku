@@ -103,14 +103,14 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	 * @param color
 	 *            la couleur de la case
 	 */
-	public void colorie(Coordonnee debut, Coordonnee fin, Color color) {
-		for (int i = debut.getLigne(); i <= fin.getLigne(); i++) {
-			for (int j = debut.getColonne(); j <= fin.getColonne(); j++) {
-				cases[i][j].setBackground(color);
-			}
-		}
-
-	}
+//	public void colorie(Coordonnee debut, Coordonnee fin, Color color) {
+//		for (int i = debut.getLigne(); i <= fin.getLigne(); i++) {
+//			for (int j = debut.getColonne(); j <= fin.getColonne(); j++) {
+//				cases[i][j].setBackground(color);
+//			}
+//		}
+//
+//	}
 
 	@Override
 	public Dimension getPreferredSize() {
@@ -119,6 +119,7 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 		return d;
 	}
 
+	// ??????????????????
 	public void setClicActive(boolean active) {
 		SwingUtilities.invokeLater(() -> {
 			this.setEnabled(false);

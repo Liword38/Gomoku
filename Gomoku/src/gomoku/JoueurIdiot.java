@@ -23,7 +23,7 @@ public class JoueurIdiot extends JoueurAuto {
 	//Affiche des retours sur déroulement de la partie dans la console après avoir joué
 	protected void retourAttaque(Marqueur m, int etat) {
 		if (etat == GAGNE)
-			System.out.println( this.getNom() +" a gagné en jouant en "+m.getCoordonnee());
+			System.out.println( this.getNom() +" a gagné en jouant en "+m.getCoordonnee()+ " contre "+this.getOpponentName() + " !");
 		else  
 			System.out.println( this.getNom() + " joue en "+ m.getCoordonnee());
 
@@ -32,7 +32,7 @@ public class JoueurIdiot extends JoueurAuto {
 	//Affiche des retours sur déroulement de la partie dans la console après que l'adversaire ait joué
 	protected void retourDefense(Marqueur m, int etat) {
 		if (etat == GAGNE)
-			System.out.println(this.getNom() +" a perdu!");
+			System.out.println(this.getNom() +" a perdu contre "+this.getOpponentName()+" !");
 		else 
 			System.out.println( "a " + this.getNom() + " de jouer");
 

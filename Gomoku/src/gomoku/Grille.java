@@ -194,7 +194,7 @@ public class Grille {
 
 		for (int i = 0; i < voisins.length; i++) { // Pour chaque voisin(du même type) que m
 			if (voisins[i] != null) {
-				Marqueur[] ligne = new Marqueur[5];
+				Marqueur[] ligne = new Marqueur[9];
 				ligne[0] = m;
 				int ligneIndex = 1;
 				Coordonnee target;

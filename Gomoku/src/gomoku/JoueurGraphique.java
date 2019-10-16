@@ -22,8 +22,9 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	 * @param nom
 	 */
 	
-	public JoueurGraphique(GrilleDeJeu grilleJeu, String nom, boolean isCroix) {
+	public JoueurGraphique(GrilleDeJeu grilleJeu, GrilleGraphique grilleGraph, String nom, boolean isCroix) {
 		super(grilleJeu,nom,isCroix);
+		this.grilleJeu=grilleGraph;
 		
 	}
 	
@@ -34,19 +35,23 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	 * @param grilleJeu : La grille de jeu
 	 */
 	
-	public JoueurGraphique(GrilleDeJeu grilleJeu, boolean isCroix) {
+	public JoueurGraphique(Grille grilleJeu, boolean isCroix) {
 		super(grilleJeu, isCroix);
 	}
 	
 	
 	
 	/**
-	 * Consiste Ã  rÃ©cupÃ©rer la coordonnÃ©e choisie depuis grilleJeu.
+	 * Consiste a  récupérer la coordonnée choisie depuis grilleJeu.
 	 */
 	
 	public Marqueur choisirAttaque() {
 		Coordonnee c= grilleJeu.getCoordonneeSelectionnee();
+		int ligne = c.getColonne();    //J'inverse volontairement les lignes et colonnes de m sinon c'est dans le mauvais sens
+		int col = c.getLigne();
+		c = new Coordonnee(ligne,col);
 		Marqueur m = this.isCroix() ? new Marqueur(c,true) : new Marqueur(c,false);
+		System.out.println(this.getNom()+ " joue en "+m.getCoordonnee());
 		return m;
 		
 	}
@@ -54,16 +59,14 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	
 	
 	/**
-	 * Affichage d'un JOptionPane lorsque le tir a touchÃ© ou coulÃ© un navire, ou lorsque la partie
+	 * Affichage d'un JOptionPane lorsque le tir a touche ou coule un navire, ou lorsque la partie
 	   est perdue.
 	 */
 	
 	protected void retourDefense(Marqueur m,int etat) {
 		JOptionPane message = new JOptionPane();
-		Color couleur = m.isCroix() ? Color.BLUE : Color.RED;
-		grilleJeu.colorie(m.getCoordonnee(), couleur);
 		if (etat == GAGNE)	
-			JOptionPane.showMessageDialog(message, "Tu as perdu !", " Défaite", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(message, "Désolé " + this.getNom() +" tu as perdu contre "+this.getOpponentName() + " !", " Défaite", JOptionPane.WARNING_MESSAGE);
 	}
 	
 	
@@ -73,11 +76,9 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	 */
 	
 	protected void retourAttaque(Marqueur m, int etat) {
-		
-		Color couleur = m.isCroix() ? Color.BLUE : Color.RED;
-		grilleJeu.colorie(m.getCoordonnee(), couleur);
+	
 			if (etat == GAGNE)			
-				JOptionPane.showMessageDialog(grilleJeu, "Tu as gagné ! ");	
+				JOptionPane.showMessageDialog(grilleJeu, "Bravo "+this.getNom() + " tu as gagné contre "+this.getOpponentName()+ " !");	
 	}
 	
 	

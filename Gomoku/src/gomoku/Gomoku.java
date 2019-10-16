@@ -155,13 +155,13 @@ public class Gomoku {
 				int taille = Integer.parseInt(tailleGrille.getText());
 				String nomJ1 = nomJoueur1.getText();
 				String nomJ2 = nomJoueur2.getText();
-				FenetreJoueur fenetre1 = new FenetreJoueur("Grille de jeu",taille);
+				FenetreJoueur fenetre1 = new FenetreJoueur("Gomoku",taille);
 				fenetre1.setVisible(true);
 				fenetre1.setSize(new Dimension(400,400));
 
 				
 				if(rdbtnJoueurGraphique1.isSelected()) {
-					J1 = new JoueurGraphique(fenetre1.getGrilleJeu(), nomJ1, true);
+					J1 = new JoueurGraphique(fenetre1.getGrilleJeu(),fenetre1.getGrilleJeu().getGrilleGraphique(), nomJ1, true);
 				}else if(rdbtnJoueurTexte1.isSelected()){
 					J1 = new JoueurTexte(fenetre1.getGrilleJeu(),nomJ1, true);
 			}else if(rdbtnJoueurAuto1.isSelected()){
@@ -169,7 +169,7 @@ public class Gomoku {
 				}	
 				
 				if(rdbtnJoueurGraphique2.isSelected()){
-					J2 = new JoueurGraphique(fenetre1.getGrilleJeu(), nomJ2, false);
+					J2 = new JoueurGraphique(fenetre1.getGrilleJeu(),fenetre1.getGrilleJeu().getGrilleGraphique(), nomJ2, false);
 				}else if(rdbtnJoueurTexte2.isSelected()){
 					J2 = new JoueurTexte(fenetre1.getGrilleJeu(),nomJ2, false);
 				}
