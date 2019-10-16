@@ -43,13 +43,13 @@ public abstract class Joueur {
 	
 	/**
 	 * Demarre une partie contre j . Avant de lancer le deroulement du jeu, il faut
-	 * veiller a  etablir le lien entre les 2 joueurs et bien entendu verifier qu'il
+	 * veiller aï¿½ etablir le lien entre les 2 joueurs et bien entendu verifier qu'il
 	 * puisse etre etabli
 	 */
 
 	public void jouerAvec(Joueur j) {
 		if (this.adversaire != null || j.adversaire != null) { // verification que les 2 joueurs ne sont pas utilises
-			System.out.println("Un des joueurs joue de  avec quelqu'un d'autre !");
+			System.out.println("Un des joueurs joue deï¿½ avec quelqu'un d'autre !");
 			return;
 		} else {
 			System.out.println("DÃ©but de la partie, que le sort puisse vous etre favorable");
@@ -57,7 +57,7 @@ public abstract class Joueur {
 		this.adversaire = j;
 		j.adversaire = this;
 		deroulementJeu(this, j);
-		this.adversaire = null; // si la partie est finie on reinitialise les joueurs a  null
+		this.adversaire = null; // si la partie est finie on reinitialise les joueurs aï¿½ null
 		j.adversaire = null;
 	}
 	
@@ -72,7 +72,7 @@ public abstract class Joueur {
 			attaquant = defenseur;
 			defenseur = x;
 			try {
-			    Thread.sleep(0);                 //1000 milliseconds is one second.  Permet d'observer le déroulement de la partie. A mettre sur 0 pour des parties instantanées.
+			    Thread.sleep(200);                 //1000 milliseconds is one second.  Permet d'observer le deroulement de la partie. A mettre sur 0 pour des parties instantanees.
 			} catch(InterruptedException ex) {
 			    Thread.currentThread().interrupt();
 			}

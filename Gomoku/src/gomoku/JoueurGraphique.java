@@ -42,7 +42,7 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	
 	
 	/**
-	 * Consiste a  récupérer la coordonnée choisie depuis grilleJeu.
+	 * Consiste aï¿½ rï¿½cupï¿½rer la coordonnï¿½e choisie depuis grilleJeu.
 	 */
 	
 	public Marqueur choisirAttaque() {
@@ -66,7 +66,7 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	protected void retourDefense(Marqueur m,int etat) {
 		JOptionPane message = new JOptionPane();
 		if (etat == GAGNE)	
-			JOptionPane.showMessageDialog(message, "Désolé " + this.getNom() +" tu as perdu contre "+this.getOpponentName() + " !", " Défaite", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(message, "Desole " + this.getNom() +" tu as perdu contre "+this.getOpponentName() + " !", " Defaite", JOptionPane.WARNING_MESSAGE);
 	}
 	
 	
@@ -78,7 +78,7 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	protected void retourAttaque(Marqueur m, int etat) {
 	
 			if (etat == GAGNE)			
-				JOptionPane.showMessageDialog(grilleJeu, "Bravo "+this.getNom() + " tu as gagné contre "+this.getOpponentName()+ " !");	
+				JOptionPane.showMessageDialog(grilleJeu, "Bravo "+this.getNom() + " tu as gagne contre "+this.getOpponentName()+ " !");	
 	}
 	
 	

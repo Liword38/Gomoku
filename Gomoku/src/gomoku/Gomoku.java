@@ -9,8 +9,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
-import org.omg.CORBA.INITIALIZE;
-
 public class Gomoku {
 
 	private JFrame frmGomoku;
