@@ -3,6 +3,8 @@ package gomoku;
 public abstract class Joueur {
 	public final static int GAGNE = 1;
 	public final static int PASGAGNE = 2;
+	public final static int REJOUE = 3;
+	public final static int EGALITE = 4;
 	private Joueur adversaire;
 	private int tailleGrille;
 	private String nom;
@@ -63,11 +65,14 @@ public abstract class Joueur {
 	
 	private static void deroulementJeu(Joueur attaquant, Joueur defenseur) {
 		int res = 0;
-		while (res != GAGNE) {
+		while (res != GAGNE && res != EGALITE) {
+			do {
 			Marqueur m = attaquant.choisirAttaque();
 			res = defenseur.defendre(m);
 			attaquant.retourAttaque(m, res);
 			defenseur.retourDefense(m, res);
+			}
+			while (res == REJOUE);
 			Joueur x = attaquant;
 			attaquant = defenseur;
 			defenseur = x;

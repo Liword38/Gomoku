@@ -24,8 +24,12 @@ public class JoueurIdiot extends JoueurAuto {
 	protected void retourAttaque(Marqueur m, int etat) {
 		if (etat == GAGNE)
 			System.out.println( this.getNom() +" a gagné en jouant en "+m.getCoordonnee()+ " contre "+this.getOpponentName() + " !");
-		else  
+		else  if (etat == PASGAGNE)
 			System.out.println( this.getNom() + " joue en "+ m.getCoordonnee());
+		else if (etat == EGALITE)
+			System.out.println("Egalite entre " + this.getNom() + " et " + this.getOpponentName());
+		else 
+			System.out.println(this.getNom()+" rejoue");
 
 	}
 	
@@ -33,8 +37,10 @@ public class JoueurIdiot extends JoueurAuto {
 	protected void retourDefense(Marqueur m, int etat) {
 		if (etat == GAGNE)
 			System.out.println(this.getNom() +" a perdu contre "+this.getOpponentName()+" !");
-		else 
+		else if (etat == PASGAGNE)
 			System.out.println( "a " + this.getNom() + " de jouer");
+		else if (etat == REJOUE)
+			System.out.println(this.getOpponentName()+ " rejoue");
 
 	}
 	

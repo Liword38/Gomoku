@@ -27,6 +27,9 @@ public class GrilleDeJeu extends Grille{
 			return grille;
 		}
 			
+		public Grille getGrille() {
+			return this.getGrille();
+		}
 		
 		/**
 		 * Ajoute un marqueur m à this et colorie la grille graphique de la couleur correspondant au type du marqueur

@@ -78,7 +78,12 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	protected void retourAttaque(Marqueur m, int etat) {
 	
 			if (etat == GAGNE)			
-				JOptionPane.showMessageDialog(grilleJeu, "Bravo "+this.getNom() + " tu as gagné contre "+this.getOpponentName()+ " !");	
+				JOptionPane.showMessageDialog(grilleJeu, "Bravo "+this.getNom() + " tu as gagné contre "+this.getOpponentName()+ " !");
+			if (etat == EGALITE)			
+				JOptionPane.showMessageDialog(grilleJeu,"Egalite entre " + this.getNom() + " et "+this.getOpponentName()+ " !");
+			if (etat == REJOUE)
+				System.out.println(this.getNom()+ " rejoue ");
+			
 	}
 	
 	

@@ -2,6 +2,7 @@ package gomoku;
 
 import java.awt.LinearGradientPaint;
 import java.lang.reflect.Array;
+import java.security.AllPermission;
 import java.util.Arrays;
 
 public class Grille {
@@ -17,8 +18,8 @@ public class Grille {
 	public Grille(int taille) {
 		this.taille = taille;
 		this.allMarqueurs = new Coordonnee[taille * taille];
-		this.ronds = new Marqueur[(taille * taille) / 2];
-		this.croix = new Marqueur[(taille * taille) / 2];
+		this.ronds = new Marqueur[(taille * taille) / 2+1];
+		this.croix = new Marqueur[(taille * taille) / 2+1];
 		this.nbCroix = 0;
 		this.nbMarqueurs = 0;
 		this.nbRonds = 0;
@@ -117,6 +118,10 @@ public class Grille {
 			if (ronds[i] != null && ronds[i].getCoordonnee() == c)
 				return true;
 		return false;
+	}
+	
+	public boolean isFull() {
+		return this.nbMarqueurs==this.taille*this.taille;
 	}
 
 	/**
@@ -750,64 +755,67 @@ public class Grille {
 
 	public static void main(String[] args) {
 		Marqueur monMarq1 = new Marqueur(new Coordonnee(2, 4), true);
-		Marqueur monMarq2 = new Marqueur(new Coordonnee(3, 3), false);
-		Marqueur monMarq3 = new Marqueur(new Coordonnee(4, 2), false);
-		Marqueur monMarq8 = new Marqueur(new Coordonnee(2, 3), false);
-		Marqueur monMarq9 = new Marqueur(new Coordonnee(2, 2), false);
-		Marqueur monMarq10 = new Marqueur(new Coordonnee(1, 5), false);
-		Marqueur monMarq11 = new Marqueur(new Coordonnee(1, 1), false);
-		Marqueur monMarq12 = new Marqueur(new Coordonnee(1, 3), false);
-		Marqueur monMarq13 = new Marqueur(new Coordonnee(3, 5), false);
-		Marqueur monMarq14 = new Marqueur(new Coordonnee(3, 2), false);
-		Marqueur monMarq15 = new Marqueur(new Coordonnee(3, 1), false);
-		Marqueur monMarq16 = new Marqueur(new Coordonnee(5, 5), false);
-		Marqueur monMarq17 = new Marqueur(new Coordonnee(11, 11), false);
-
-		Marqueur monMarq4 = new Marqueur(new Coordonnee(4, 3), false);
-		Marqueur monMarq5 = new Marqueur(new Coordonnee(4, 4), true);
-		Marqueur monMarq6 = new Marqueur(new Coordonnee(3, 4), false);
-		Marqueur monMarq7 = new Marqueur(new Coordonnee(6, 1), false);
-		Marqueur monMarq18 = new Marqueur(new Coordonnee(6, 6), false);
-		Marqueur monMarq19 = new Marqueur(new Coordonnee(7, 7), false);
-
-		Marqueur monMarq20 = new Marqueur(new Coordonnee(13, 13), false);
-		Marqueur monMarq21 = new Marqueur(new Coordonnee(14, 14), false);
-		Marqueur monMarq22 = new Marqueur(new Coordonnee(15, 15), false);
-		Marqueur monMarq23 = new Marqueur(new Coordonnee(16, 16), false);
-		Marqueur monMarq24 = new Marqueur(new Coordonnee(17, 17), false);
+		Marqueur monMarq2 = new Marqueur(new Coordonnee(2, 4), false);
+//		Marqueur monMarq3 = new Marqueur(new Coordonnee(4, 2), false);
+//		Marqueur monMarq8 = new Marqueur(new Coordonnee(2, 3), false);
+//		Marqueur monMarq9 = new Marqueur(new Coordonnee(2, 2), false);
+//		Marqueur monMarq10 = new Marqueur(new Coordonnee(1, 5), false);
+//		Marqueur monMarq11 = new Marqueur(new Coordonnee(1, 1), false);
+//		Marqueur monMarq12 = new Marqueur(new Coordonnee(1, 3), false);
+//		Marqueur monMarq13 = new Marqueur(new Coordonnee(3, 5), false);
+//		Marqueur monMarq14 = new Marqueur(new Coordonnee(3, 2), false);
+//		Marqueur monMarq15 = new Marqueur(new Coordonnee(3, 1), false);
+//		Marqueur monMarq16 = new Marqueur(new Coordonnee(5, 5), false);
+//		Marqueur monMarq17 = new Marqueur(new Coordonnee(11, 11), false);
+//
+//		Marqueur monMarq4 = new Marqueur(new Coordonnee(4, 3), false);
+//		Marqueur monMarq5 = new Marqueur(new Coordonnee(4, 4), true);
+//		Marqueur monMarq6 = new Marqueur(new Coordonnee(3, 4), false);
+//		Marqueur monMarq7 = new Marqueur(new Coordonnee(6, 1), false);
+//		Marqueur monMarq18 = new Marqueur(new Coordonnee(6, 6), false);
+//		Marqueur monMarq19 = new Marqueur(new Coordonnee(7, 7), false);
+//
+//		Marqueur monMarq20 = new Marqueur(new Coordonnee(13, 13), false);
+//		Marqueur monMarq21 = new Marqueur(new Coordonnee(14, 14), false);
+//		Marqueur monMarq22 = new Marqueur(new Coordonnee(15, 15), false);
+//		Marqueur monMarq23 = new Marqueur(new Coordonnee(16, 16), false);
+//		Marqueur monMarq24 = new Marqueur(new Coordonnee(17, 17), false);
 
 		Grille maGrille = new Grille(22);
-		maGrille.ajouteMarqueur(monMarq1);
-		maGrille.ajouteMarqueur(monMarq2);
-		maGrille.ajouteMarqueur(monMarq3);
-		maGrille.ajouteMarqueur(monMarq4);
-		maGrille.ajouteMarqueur(monMarq5);
-		maGrille.ajouteMarqueur(monMarq6);
-		maGrille.ajouteMarqueur(monMarq7);
-		maGrille.ajouteMarqueur(monMarq8);
-		maGrille.ajouteMarqueur(monMarq9);
-		maGrille.ajouteMarqueur(monMarq10);
-		maGrille.ajouteMarqueur(monMarq11);
-		maGrille.ajouteMarqueur(monMarq12);
-		maGrille.ajouteMarqueur(monMarq13);
-		maGrille.ajouteMarqueur(monMarq14);
-		maGrille.ajouteMarqueur(monMarq15);
-		maGrille.ajouteMarqueur(monMarq16);
-		maGrille.ajouteMarqueur(monMarq17);
-		maGrille.ajouteMarqueur(monMarq18);
-		maGrille.ajouteMarqueur(monMarq19);
-
-		maGrille.ajouteMarqueur(monMarq20);
-		maGrille.ajouteMarqueur(monMarq21);
-		maGrille.ajouteMarqueur(monMarq22);
-		maGrille.ajouteMarqueur(monMarq23);
-		maGrille.ajouteMarqueur(monMarq24);
+		System.out.println(maGrille.ajouteMarqueur(monMarq1));
+		System.out.println(maGrille.ajouteMarqueur(monMarq2));
+//		maGrille.ajouteMarqueur(monMarq3);
+//		maGrille.ajouteMarqueur(monMarq4);
+//		maGrille.ajouteMarqueur(monMarq5);
+//		maGrille.ajouteMarqueur(monMarq6);
+//		maGrille.ajouteMarqueur(monMarq7);
+//		maGrille.ajouteMarqueur(monMarq8);
+//		maGrille.ajouteMarqueur(monMarq9);
+//		maGrille.ajouteMarqueur(monMarq10);
+//		maGrille.ajouteMarqueur(monMarq11);
+//		maGrille.ajouteMarqueur(monMarq12);
+//		maGrille.ajouteMarqueur(monMarq13);
+//		maGrille.ajouteMarqueur(monMarq14);
+//		maGrille.ajouteMarqueur(monMarq15);
+//		maGrille.ajouteMarqueur(monMarq16);
+//		maGrille.ajouteMarqueur(monMarq17);
+//		maGrille.ajouteMarqueur(monMarq18);
+//		maGrille.ajouteMarqueur(monMarq19);
+//
+//		maGrille.ajouteMarqueur(monMarq20);
+//		maGrille.ajouteMarqueur(monMarq21);
+//		maGrille.ajouteMarqueur(monMarq22);
+//		maGrille.ajouteMarqueur(monMarq23);
+//		maGrille.ajouteMarqueur(monMarq24);
 
 		System.out.println(maGrille);
+		for (int i = 0 ; i< maGrille.ronds.length;i++) {
+			if (maGrille.ronds[i] != null) System.out.println("Ronds : " + maGrille.ronds[i].toString());
+		}
 
-		System.out.println(maGrille.ronds.toString());
-		System.out.println(maGrille.croix.toString());
-
+		for (int i = 0 ; i< maGrille.croix.length;i++) {
+			if (maGrille.croix[i] != null) System.out.println("Croix : " + maGrille.croix[i].toString());
+		}
 
 
 	}
