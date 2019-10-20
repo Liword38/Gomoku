@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 public class Grille {
 
-	private Marqueur[] ronds; // Enregistrement des marqueurs de type ronds placés sur la grille
+	private Marqueur[] ronds; // Enregistrement des marqueurs de type ronds placï¿½s sur la grille
 	private Marqueur[] croix; // Marqueurs de type croix sur la grille
-	private Coordonnee[] allMarqueurs; // Toutes les coordonnées de marqueurs placés sur la grille(croix ET rond)
+	private Coordonnee[] allMarqueurs; // Toutes les coordonnï¿½es de marqueurs placï¿½s sur la grille(croix ET rond)
 	private int taille;
 	private int nbMarqueurs;
 	private int nbCroix;
@@ -17,8 +17,8 @@ public class Grille {
 	public Grille(int taille) {
 		this.taille = taille;
 		this.allMarqueurs = new Coordonnee[taille * taille];
-		this.ronds = new Marqueur[(taille * taille) / 2];
-		this.croix = new Marqueur[(taille * taille) / 2];
+		this.ronds = new Marqueur[((taille * taille) / 2)+1];
+		this.croix = new Marqueur[((taille * taille) / 2)+1];
 		this.nbCroix = 0;
 		this.nbMarqueurs = 0;
 		this.nbRonds = 0;
@@ -38,10 +38,10 @@ public class Grille {
 
 	/**
 	 * Ajoute un nouveau Marqueur dans allMarqueurs et dans le tableau correspondant
-	 * à son type si il n'a pas déjà été placé
+	 * ï¿½ son type si il n'a pas dï¿½jï¿½ ï¿½tï¿½ placï¿½
 	 * 
-	 * @param Marqueur m à ajouter
-	 * @return vrai si les tableaux ont été modifiés, faux sinon
+	 * @param Marqueur m ï¿½ ajouter
+	 * @return vrai si les tableaux ont ï¿½tï¿½ modifiï¿½s, faux sinon
 	 */
 	public boolean ajouteMarqueur(Marqueur m) {
 		if (!estDansGrille(m))
@@ -67,7 +67,7 @@ public class Grille {
 	}
 
 	/**
-	 * Retourne true si et seulement si la Coordonne correspondant à [ligne,col] est
+	 * Retourne true si et seulement si la Coordonne correspondant ï¿½ [ligne,col] est
 	 * valide dans la grille this.
 	 * 
 	 * @param ligne, col : int
@@ -120,11 +120,11 @@ public class Grille {
 	}
 
 	/**
-	 * Cherche les voisins (diagonales comprises) du même type que m (croix/rond)
+	 * Cherche les voisins (diagonales comprises) du mï¿½me type que m (croix/rond)
 	 * 
 	 * @param m
-	 * @return tableau des Marqueur du même type que m et en contact avec m /!\ Le
-	 *         tableau retourné contient des valeurs null /!\
+	 * @return tableau des Marqueur du mï¿½me type que m et en contact avec m /!\ Le
+	 *         tableau retournï¿½ contient des valeurs null /!\
 	 */
 	private Marqueur[] voisins(Marqueur m) {
 		Marqueur[] res = new Marqueur[8];
@@ -150,8 +150,8 @@ public class Grille {
 	}
 
 	/**
-	 * Vérifie si m appartient à une ligne de 5 ou plus marqueurs de son type
-	 * (auquel cas la partie est gagnée)
+	 * Vï¿½rifie si m appartient ï¿½ une ligne de 5 ou plus marqueurs de son type
+	 * (auquel cas la partie est gagnï¿½e)
 	 * 
 	 * @param m
 	 * @return true si m constitue une ligne de 5 ou plus marqueurs de son type
@@ -174,17 +174,17 @@ public class Grille {
 	}
 
 	/**
-	 * Pour un marqueur m donné, renvoie un tableau des différentes lignes dont il
-	 * fait partie sous forme des tableaux de marqueurs. Attention méthode de 500
-	 * lignes, il est conseillé de la réduire :)
+	 * Pour un marqueur m donnï¿½, renvoie un tableau des diffï¿½rentes lignes dont il
+	 * fait partie sous forme des tableaux de marqueurs. Attention mï¿½thode de 500
+	 * lignes, il est conseillï¿½ de la rï¿½duire :)
 	 * 
-	 * @param m: Marqueur à scanner
+	 * @param m: Marqueur ï¿½ scanner
 	 * @return Un tableau contenant les lignes du marqueur m. Une ligne est un
 	 *         tableau de marqueurs
 	 */
 	private Marqueur[][] lignesDeMarqueur(Marqueur m) {
 		Marqueur[][] res = new Marqueur[8][9]; // 8 lignes maximum par points et 9 marqueurs maximum par ligne (si 4 de
-												// chaque côté et on pose un marqueur au milieu)
+												// chaque cï¿½tï¿½ et on pose un marqueur au milieu)
 		int resIndex = 0;
 		Marqueur[] voisins = voisins(m);
 		int mligne = m.getCoordonnee().getLigne();
@@ -192,7 +192,7 @@ public class Grille {
 		Marqueur[] sameTypeMarq = m.isCroix() ? croix : ronds;
 		int nbSameTypeM = m.isCroix() ? nbCroix : nbRonds;
 
-		for (int i = 0; i < voisins.length; i++) { // Pour chaque voisin(du même type) que m
+		for (int i = 0; i < voisins.length; i++) { // Pour chaque voisin(du mï¿½me type) que m
 			if (voisins[i] != null) {
 				Marqueur[] ligne = new Marqueur[9];
 				ligne[0] = m;
@@ -204,11 +204,11 @@ public class Grille {
 				int diffCol = mcol - voisins[i].getCoordonnee().getColonne();
 
 				if ((diffLigne == -1 && diffCol == -1) || (diffLigne == 1 && diffCol == 1)) {
-					// Si le voisin est en dessous à droite ou au dessus à gauche -- On parcours en
-					// bas à droite ET en haut à gauche
+					// Si le voisin est en dessous ï¿½ droite ou au dessus ï¿½ gauche -- On parcours en
+					// bas ï¿½ droite ET en haut ï¿½ gauche
 
 					if (this.estDansGrille(mligne + 1, mcol + 1)) {
-						target = new Coordonnee(mligne + 1, mcol + 1); // 1cases en bas et 1 à droite
+						target = new Coordonnee(mligne + 1, mcol + 1); // 1cases en bas et 1 ï¿½ droite
 
 						for (int j = 0; j < nbSameTypeM; j++) {
 							if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -223,7 +223,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne + 2, mcol + 2)) {
-							target = new Coordonnee(mligne + 2, mcol + 2); // 2cases en bas et 2 à droite
+							target = new Coordonnee(mligne + 2, mcol + 2); // 2cases en bas et 2 ï¿½ droite
 
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -238,7 +238,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne + 3, mcol + 3)) {
-							target = new Coordonnee(mligne + 3, mcol + 3); // 3cases en bas et 3 à droite
+							target = new Coordonnee(mligne + 3, mcol + 3); // 3cases en bas et 3 ï¿½ droite
 
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -254,7 +254,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne + 4, mcol + 4)) {
-							target = new Coordonnee(mligne + 4, mcol + 4); // 4cases en bas et 4 à droite
+							target = new Coordonnee(mligne + 4, mcol + 4); // 4cases en bas et 4 ï¿½ droite
 
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -268,7 +268,7 @@ public class Grille {
 					found = false;
 
 					if (this.estDansGrille(mligne - 1, mcol - 1)) {
-						target = new Coordonnee(mligne - 1, mcol - 1); // 1 case en haut et 1 à gauche
+						target = new Coordonnee(mligne - 1, mcol - 1); // 1 case en haut et 1 ï¿½ gauche
 
 						for (int j = 0; j < nbSameTypeM; j++) {
 							if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -283,7 +283,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne - 2, mcol - 2)) {
-							target = new Coordonnee(mligne - 2, mcol - 2); // 2 case en haut et 2 à gauche
+							target = new Coordonnee(mligne - 2, mcol - 2); // 2 case en haut et 2 ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -298,7 +298,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne - 3, mcol - 3)) {
-							target = new Coordonnee(mligne - 3, mcol - 3); // 3 case en haut et 3 à gauche
+							target = new Coordonnee(mligne - 3, mcol - 3); // 3 case en haut et 3 ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -312,7 +312,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne - 4, mcol - 4)) {
-							target = new Coordonnee(mligne - 4, mcol - 4); // 4 case en haut et 4 à gauche
+							target = new Coordonnee(mligne - 4, mcol - 4); // 4 case en haut et 4 ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -325,7 +325,7 @@ public class Grille {
 				}
 
 				if ((diffLigne == -1 && diffCol == 0) || (diffLigne == 1 && diffCol == 0)) {
-					// Si le voisin est sur la même colonne -- On parcours en bas ET en haut
+					// Si le voisin est sur la mï¿½me colonne -- On parcours en bas ET en haut
 					found = false;
 
 					if (this.estDansGrille(mligne + 1, mcol)) {
@@ -446,13 +446,13 @@ public class Grille {
 
 				if ((diffLigne == -1 && diffCol == 1) || (diffLigne == 1 && diffCol == -1)) {
 
-					// case 1: // Si le voisin est en bas à gauche ou en haut à droite -- On
-					// parcours en bas à gauche ET en haut à droite
+					// case 1: // Si le voisin est en bas ï¿½ gauche ou en haut ï¿½ droite -- On
+					// parcours en bas ï¿½ gauche ET en haut ï¿½ droite
 
 					found = false;
 
 					if (this.estDansGrille(mligne + 1, mcol - 1)) {
-						target = new Coordonnee(mligne + 1, mcol - 1); // 1 case en bas et 1 à gauche
+						target = new Coordonnee(mligne + 1, mcol - 1); // 1 case en bas et 1 ï¿½ gauche
 
 						for (int j = 0; j < nbSameTypeM; j++) {
 							if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -467,7 +467,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne + 2, mcol - 2)) {
-							target = new Coordonnee(mligne + 2, mcol - 2); // 2 case en bas et 2 à gauche
+							target = new Coordonnee(mligne + 2, mcol - 2); // 2 case en bas et 2 ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -482,7 +482,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne + 3, mcol - 3)) {
-							target = new Coordonnee(mligne + 3, mcol - 3); // 3 case en bas et 3 à gauche
+							target = new Coordonnee(mligne + 3, mcol - 3); // 3 case en bas et 3 ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -496,7 +496,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne + 4, mcol - 4)) {
-							target = new Coordonnee(mligne + 4, mcol - 4); // 4 case en bas et 4 à gauche
+							target = new Coordonnee(mligne + 4, mcol - 4); // 4 case en bas et 4 ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -509,7 +509,7 @@ public class Grille {
 					found = false;
 
 					if (this.estDansGrille(mligne - 1, mcol + 1)) {
-						target = new Coordonnee(mligne - 1, mcol + 1); // 1 case en haut et 1 à droite
+						target = new Coordonnee(mligne - 1, mcol + 1); // 1 case en haut et 1 ï¿½ droite
 
 						for (int j = 0; j < nbSameTypeM; j++) {
 							if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -523,7 +523,7 @@ public class Grille {
 					if (found == true) {
 						found = false;
 						if (this.estDansGrille(mligne - 2, mcol + 2)) {
-							target = new Coordonnee(mligne - 2, mcol + 2); // 2 case en haut et 2 à droite
+							target = new Coordonnee(mligne - 2, mcol + 2); // 2 case en haut et 2 ï¿½ droite
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -537,7 +537,7 @@ public class Grille {
 					if (found == true) {
 						found = false;
 						if (this.estDansGrille(mligne - 3, mcol + 3)) {
-							target = new Coordonnee(mligne - 3, mcol + 3); // 3 case en haut et 3 à droite
+							target = new Coordonnee(mligne - 3, mcol + 3); // 3 case en haut et 3 ï¿½ droite
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -551,7 +551,7 @@ public class Grille {
 					if (found == true) {
 						found = false;
 						if (this.estDansGrille(mligne - 4, mcol + 4)) {
-							target = new Coordonnee(mligne - 4, mcol + 4); // 4 case en haut et 4 à droite
+							target = new Coordonnee(mligne - 4, mcol + 4); // 4 case en haut et 4 ï¿½ droite
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -565,12 +565,12 @@ public class Grille {
 
 				if ((diffLigne == 0 && diffCol == 1) || (diffLigne == 0 && diffCol == -1)) {
 
-					// Si le voisin est sur la même ligne, on test uniquement l'axe horizontal
+					// Si le voisin est sur la mï¿½me ligne, on test uniquement l'axe horizontal
 
 					found = false;
 
 					if (this.estDansGrille(mligne, mcol + 1)) {
-						target = new Coordonnee(mligne, mcol + 1); // 1 case à droite
+						target = new Coordonnee(mligne, mcol + 1); // 1 case ï¿½ droite
 
 						for (int j = 0; j < nbSameTypeM; j++) {
 							if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -584,7 +584,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne, mcol + 2)) {
-							target = new Coordonnee(mligne, mcol + 2); // 2 case à droite
+							target = new Coordonnee(mligne, mcol + 2); // 2 case ï¿½ droite
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -599,7 +599,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne, mcol + 3)) {
-							target = new Coordonnee(mligne, mcol + 3); // 3 case à droite
+							target = new Coordonnee(mligne, mcol + 3); // 3 case ï¿½ droite
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -614,7 +614,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne, mcol + 4)) {
-							target = new Coordonnee(mligne, mcol + 4); // 4 case à droite
+							target = new Coordonnee(mligne, mcol + 4); // 4 case ï¿½ droite
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -627,7 +627,7 @@ public class Grille {
 					found = false;
 
 					if (this.estDansGrille(mligne, mcol - 1)) {
-						target = new Coordonnee(mligne, mcol - 1); // 1 case à gauche
+						target = new Coordonnee(mligne, mcol - 1); // 1 case ï¿½ gauche
 
 						for (int j = 0; j < nbSameTypeM; j++) {
 							if (sameTypeMarq[j].getCoordonnee().equals(target)) {
@@ -642,7 +642,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne, mcol - 2)) {
-							target = new Coordonnee(mligne, mcol - 2); // 2 cases à gauche
+							target = new Coordonnee(mligne, mcol - 2); // 2 cases ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -657,7 +657,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne, mcol - 3)) {
-							target = new Coordonnee(mligne, mcol - 3); // 3 cases à gauche
+							target = new Coordonnee(mligne, mcol - 3); // 3 cases ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -672,7 +672,7 @@ public class Grille {
 						found = false;
 
 						if (this.estDansGrille(mligne, mcol - 4)) {
-							target = new Coordonnee(mligne, mcol - 4); // 4 cases à gauche
+							target = new Coordonnee(mligne, mcol - 4); // 4 cases ï¿½ gauche
 							for (int j = 0; j < nbSameTypeM; j++) {
 								if (sameTypeMarq[j].getCoordonnee().equals(target)) {
 									ligne[ligneIndex] = sameTypeMarq[j];
@@ -696,7 +696,7 @@ public class Grille {
 
 	/**
 	 * Retourne une String representant this. On souhaite obtenir une
-	 * représentation s'affichant sur la console.
+	 * reprï¿½sentation s'affichant sur la console.
 	 */
 
 	public String toString() {

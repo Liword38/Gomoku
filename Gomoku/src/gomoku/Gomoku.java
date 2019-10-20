@@ -155,7 +155,7 @@ public class Gomoku {
 				String nomJ2 = nomJoueur2.getText();
 				FenetreJoueur fenetre1 = new FenetreJoueur("Gomoku",taille);
 				fenetre1.setVisible(true);
-				fenetre1.setSize(new Dimension(400,400));
+				fenetre1.setSize(new Dimension(800,800));  //Modifie la taille de la grille de jeu
 
 				
 				if(rdbtnJoueurGraphique1.isSelected()) {
