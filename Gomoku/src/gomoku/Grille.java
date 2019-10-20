@@ -20,7 +20,7 @@ public class Grille {
 		this.allMarqueurs = new Coordonnee[taille * taille];
 		this.ronds = new Marqueur[(taille * taille) / 2+1];
 
-		this.ronds = new Marqueur[((taille * taille) / 2)+1];
+		this.croix = new Marqueur[((taille * taille) / 2)+1];
 
 		this.nbCroix = 0;
 		this.nbMarqueurs = 0;
