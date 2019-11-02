@@ -26,8 +26,10 @@ public abstract class JoueurAvecGrille extends Joueur {
 	public int defendre(Marqueur m) {
 
 		if (grille.ajouteMarqueur(m)) {
-			if (grille.fiveInARow(m))
+			if (grille.plusLongueLigne(m) >= 5) {
+				
 				return GAGNE;
+				}
 			else {
 				if (grille.isFull()) 
 					return EGALITE;

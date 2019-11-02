@@ -3,8 +3,6 @@ package gomoku;
 
 
 public class JoueurIdiot extends JoueurAuto {
-
-	private Marqueur coupChoisi;
 	
 	public JoueurIdiot(Grille g, String nom, boolean isCroix) {
 		super(g,nom,isCroix);
@@ -20,7 +18,7 @@ public class JoueurIdiot extends JoueurAuto {
 		
 	}
 	
-	//Affiche des retours sur dï¿½roulement de la partie dans la console aprï¿½s avoir jouï¿½
+	//Affiche des retours sur deroulement de la partie dans la console apres avoir joue
 	protected void retourAttaque(Marqueur m, int etat) {
 		if (etat == GAGNE)
 			System.out.println( this.getNom() +" a gagné en jouant en "+m.getCoordonnee()+ " contre "+this.getOpponentName() + " !");
@@ -33,7 +31,7 @@ public class JoueurIdiot extends JoueurAuto {
 
 	}
 	
-	//Affiche des retours sur dï¿½roulement de la partie dans la console aprï¿½s que l'adversaire ait jouï¿½
+	//Affiche des retours sur deroulement de la partie dans la console apres que l'adversaire ait joue
 	protected void retourDefense(Marqueur m, int etat) {
 		if (etat == GAGNE)
 			System.out.println(this.getNom() +" a perdu contre "+this.getOpponentName()+" !");
@@ -46,8 +44,8 @@ public class JoueurIdiot extends JoueurAuto {
 	
 
 	/**
-	 * Cette mï¿½thode est invoquï¿½e sur le joueur attaquant au dï¿½but dï¿½un tour de jeu. Elle retourne
-	   le marqueur que le joueur dï¿½cide de jouer. (Marqueur = Coordonnees + Type) 
+	 * Cette methode est invoquee sur le joueur attaquant au debut d'un tour de jeu. Elle retourne
+	   le marqueur que le joueur decide de jouer. (Marqueur = Coordonnees + Type) 
 	 */
 	public Marqueur choisirAttaque() {
 		int ligne = (int) (Math.random() * super.getGrille().getTaille());

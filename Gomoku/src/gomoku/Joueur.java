@@ -23,6 +23,10 @@ public abstract class Joueur {
 
 	}
 	
+	public void setIsCroix(boolean isCroix) {
+		this.isCroix = isCroix;
+	}
+	
 	public String getOpponentName() {
 		if (this.adversaire.getNom() != null)
 			return this.adversaire.getNom();
@@ -51,10 +55,10 @@ public abstract class Joueur {
 
 	public void jouerAvec(Joueur j) {
 		if (this.adversaire != null || j.adversaire != null) { // verification que les 2 joueurs ne sont pas utilises
-			System.out.println("Un des joueurs joue de� avec quelqu'un d'autre !");
+			System.out.println("Un des joueurs joue deja avec quelqu'un d'autre !");
 			return;
 		} else {
-			System.out.println("Début de la partie, que le sort puisse vous etre favorable");
+			System.out.println("Debut de la partie, que le meilleur gagne !");
 		}
 		this.adversaire = j;
 		j.adversaire = this;
@@ -77,7 +81,7 @@ public abstract class Joueur {
 			attaquant = defenseur;
 			defenseur = x;
 			try {
-			    Thread.sleep(200);                 //1000 milliseconds is one second.  Permet d'observer le deroulement de la partie. A mettre sur 0 pour des parties instantanees.
+			    Thread.sleep(0);                 //1000 milliseconds is one second.  Permet d'observer le deroulement de la partie. A mettre sur 0 pour des parties instantanees.
 			} catch(InterruptedException ex) {
 			    Thread.currentThread().interrupt();
 			}
