@@ -56,13 +56,15 @@ public abstract class Joueur {
 	public String jouerAvec(Joueur j) {
 		if (this.adversaire != null || j.adversaire != null) { // verification que les 2 joueurs ne sont pas utilises
 			System.out.println("Un des joueurs joue deja avec quelqu'un d'autre !");
-			return "Un joueur est occupé";
+			return "Un joueur est occupï¿½";
 		} else {
 			System.out.println("Debut de la partie, que le meilleur gagne !");
 		}
 		this.adversaire = j;
 		j.adversaire = this;
+		long startTime = System.currentTimeMillis();
 		String result = deroulementJeu(this, j);
+		System.out.println("DurÃ©e de la partie: " + (System.currentTimeMillis()-startTime)/1000 + "secondes");
 		this.adversaire = null; // si la partie est finie on reinitialise les joueurs a null
 		j.adversaire = null;
 		return result;

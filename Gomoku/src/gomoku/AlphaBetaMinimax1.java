@@ -58,7 +58,7 @@ public class AlphaBetaMinimax1 extends JoueurMinimax1 {
 			 }
 		 }
 		 System.out.println("Le score du meilleur coup est: " + bestValue + " isCroix="+ isCroix()+" en " + bestMove.getCoordonnee());
-		 System.out.println(System.currentTimeMillis()-debut);
+		 System.out.println(System.currentTimeMillis()-debut + " millisecondes");
 		 return bestMove;
 	 }
 	
@@ -124,7 +124,7 @@ public class AlphaBetaMinimax1 extends JoueurMinimax1 {
 		//char[][] etat2 = maGrille.getGrilleLogique();
 		JoueurMinimax1 minimax2 = new AlphaBetaMinimax1(maGrille, "alphabeta1" , true);
 		JoueurMinimax1 minimax3 = new AlphaBetaMinimax1(maGrille, "alphabeta2" , false);
-
+		
 		minimax2.jouerAvec(minimax3);
 	}
 }

@@ -18,7 +18,7 @@ public class JoueurMinimax1 extends JoueurAuto {
 	// joue
 	protected void retourAttaque(Marqueur m, int etat) {
 		if (etat == GAGNE)
-			System.out.println(this.getNom() + " a gagné en jouant en " + m.getCoordonnee() + " contre "
+			System.out.println(this.getNom() + " a gagnï¿½ en jouant en " + m.getCoordonnee() + " contre "
 					+ this.getOpponentName() + " !");
 		else if (etat == PASGAGNE)
 			System.out.println(this.getNom() + " joue en " + m.getCoordonnee());
@@ -88,7 +88,7 @@ public class JoueurMinimax1 extends JoueurAuto {
 		 }
 		System.out.println("Le score du meilleur coup est: " + bestValue + " isCroix="+ isCroix()+" en " + bestMove.getCoordonnee());
 		System.out.print("Le temps de calcul est de: ");
-		System.out.println(System.currentTimeMillis()-debut);
+		System.out.println(System.currentTimeMillis()-debut+ " milliseconds");
 		 return bestMove;
 	 }
 
@@ -192,7 +192,7 @@ public class JoueurMinimax1 extends JoueurAuto {
 	 * 
 	 * 
 	 * @param etat
-	 * @return le score correspondant à l'etat donné, MaxPlayer=Croix,
+	 * @return le score correspondant ï¿½ l'etat donnï¿½, MaxPlayer=Croix,
 	 *         MinPlayer=Ronds
 	 */
 	public static int evaluate1(char[][] etat) {
