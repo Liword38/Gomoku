@@ -14,6 +14,8 @@ public class JoueurMinimax2 extends JoueurMinimax1 {
 		super(g, "minimax2", isCroix);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	/**
 	 * 

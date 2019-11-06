@@ -53,21 +53,22 @@ public abstract class Joueur {
 	 * puisse etre etabli
 	 */
 
-	public void jouerAvec(Joueur j) {
+	public String jouerAvec(Joueur j) {
 		if (this.adversaire != null || j.adversaire != null) { // verification que les 2 joueurs ne sont pas utilises
 			System.out.println("Un des joueurs joue deja avec quelqu'un d'autre !");
-			return;
+			return "Un joueur est occupé";
 		} else {
 			System.out.println("Debut de la partie, que le meilleur gagne !");
 		}
 		this.adversaire = j;
 		j.adversaire = this;
-		deroulementJeu(this, j);
+		String result = deroulementJeu(this, j);
 		this.adversaire = null; // si la partie est finie on reinitialise les joueurs a null
 		j.adversaire = null;
+		return result;
 	}
 	
-	private static void deroulementJeu(Joueur attaquant, Joueur defenseur) {
+	private static String deroulementJeu(Joueur attaquant, Joueur defenseur) {
 		int res = 0;
 		while (res != GAGNE && res != EGALITE) {
 			do {
@@ -86,6 +87,9 @@ public abstract class Joueur {
 			    Thread.currentThread().interrupt();
 			}
 		}
+		if (res == GAGNE)		//On a inverse defenseur et attaquant apres la victoire, c'est donc defenseur qui a gagne
+			return defenseur.nom;
+		return "tie";
 	}
 	
 

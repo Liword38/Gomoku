@@ -39,7 +39,7 @@ public class AlphaBetaMinimax1 extends JoueurMinimax1 {
 				 if (etat[i][j] == '_') {	//Si une case est vide on joue le coup
 					 
 					 etat[i][j] = this.isCroix() ? 'X' : 'O';
-					 int scoreCoup = alphaBeta(etat, 4, 0,-30000, 30000, !this.isCroix()); //On evalue le score du coup en question /!\ c'est ici qu'on determine la profondeur de l'arbre minimax
+					 int scoreCoup = alphaBeta(etat, 3, 0,-30000, 30000, !this.isCroix()); //On evalue le score du coup en question /!\ c'est ici qu'on determine la profondeur de l'arbre minimax
 					 etat[i][j] = '_'; //On defait le coup joue
 					 
 					 if (this.isCroix()) {
@@ -122,8 +122,8 @@ public class AlphaBetaMinimax1 extends JoueurMinimax1 {
 	public static void main(String[] args) {
 		Grille maGrille = new Grille(8);
 		//char[][] etat2 = maGrille.getGrilleLogique();
-		JoueurMinimax1 minimax2 = new AlphaBetaMinimax1(maGrille, "alphabeta" , true);
-		JoueurMinimax1 minimax3 = new AlphaBetaMinimax1(maGrille, "alphabeta" , false);
+		JoueurMinimax1 minimax2 = new AlphaBetaMinimax1(maGrille, "alphabeta1" , true);
+		JoueurMinimax1 minimax3 = new AlphaBetaMinimax1(maGrille, "alphabeta2" , false);
 
 		minimax2.jouerAvec(minimax3);
 	}

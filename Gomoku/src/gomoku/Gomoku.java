@@ -59,7 +59,7 @@ public class Gomoku {
 	private void initialize() {
 		frmGomoku = new JFrame();
 		frmGomoku.setTitle("Gomoku");
-		frmGomoku.setBounds(100, 100, 425, 450);
+		frmGomoku.setBounds(100, 100, 560, 400);
 		frmGomoku.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
@@ -104,35 +104,33 @@ public class Gomoku {
 		rdbtnJoueurGraphique1.setVerticalAlignment(SwingConstants.BOTTOM);
 		choix1.add(rdbtnJoueurGraphique1);
 		
-		JRadioButton rdbtnJoueurTexte1 = new JRadioButton("Joueur Texte");
-		buttonGroup1.add(rdbtnJoueurTexte1);
-		choix1.add(rdbtnJoueurTexte1); 
-		
 		JRadioButton rdbtnJoueurAuto1 = new JRadioButton("Joueur Idiot");
 		buttonGroup1.add(rdbtnJoueurAuto1);
 		choix1.add(rdbtnJoueurAuto1); 
 		
-		JRadioButton rdbtnJoueurMinimax1 = new JRadioButton("Joueur Minimax ");
+		JRadioButton rdbtnJoueurMinimax1 = new JRadioButton("Joueur Minimax1");
 		buttonGroup1.add(rdbtnJoueurMinimax1);
 		choix1.add(rdbtnJoueurMinimax1);
 		
-		JRadioButton rdbtnJoueurAutoTrois1 = new JRadioButton("Joueur Auto 2");
+		JRadioButton rdbtnJoueurAutoTrois1 = new JRadioButton("Joueur MinimaxAggro2");
 		buttonGroup1.add(rdbtnJoueurAutoTrois1);
 		choix1.add(rdbtnJoueurAutoTrois1);
 		
-		JRadioButton rdbtnJoueurAutoQuatre1 = new JRadioButton("Joueur Auto 3");
+		JRadioButton rdbtnJoueurAutoQuatre1 = new JRadioButton("Joueur MinimaxAggro3");
 		buttonGroup1.add(rdbtnJoueurAutoQuatre1);
 		choix1.add(rdbtnJoueurAutoQuatre1);
 		
-		JRadioButton rdbtnJoueurAutoCinq1 = new JRadioButton("Joueur Auto 4");
+		JRadioButton rdbtnJoueurAutoCinq1 = new JRadioButton("Joueur AlphaBeta1");
 		buttonGroup1.add(rdbtnJoueurAutoCinq1);
 		choix1.add(rdbtnJoueurAutoCinq1);
 		
-		JRadioButton rdbtnJoueurAutoSix1 = new JRadioButton("Joueur Auto 5");
+		JRadioButton rdbtnJoueurAutoSix1 = new JRadioButton("Joueur AlphaBetaAggro2");
 		buttonGroup1.add(rdbtnJoueurAutoSix1);
 		choix1.add(rdbtnJoueurAutoSix1);
 		
-		
+		JRadioButton rdbtnJoueurAutoSept1 = new JRadioButton("Joueur AlphaBetaAggro3");
+		buttonGroup1.add(rdbtnJoueurAutoSept1);
+		choix1.add(rdbtnJoueurAutoSept1); 
 		
 		
 		JPanel joueur_2 = new JPanel();
@@ -158,27 +156,33 @@ public class Gomoku {
 		buttonGroup2.add(rdbtnJoueurGraphique2);
 		choix2.add(rdbtnJoueurGraphique2); 
 		
-		JRadioButton rdbtnJoueurTexte2 = new JRadioButton("Joueur Texte");
-		buttonGroup2.add(rdbtnJoueurTexte2);
-		choix2.add(rdbtnJoueurTexte2); 
-		
 		JRadioButton rdbtnJoueurAuto2 = new JRadioButton("Joueur Idiot");
 		buttonGroup2.add(rdbtnJoueurAuto2);
 		choix2.add(rdbtnJoueurAuto2); 
 		
-		JRadioButton rdbtnJoueurMinimax2 = new JRadioButton("Joueur Minimax");
+		JRadioButton rdbtnJoueurMinimax2 = new JRadioButton("Joueur Minimax1");
 		buttonGroup2.add(rdbtnJoueurMinimax2);
 		choix2.add(rdbtnJoueurMinimax2);
 		
-		JRadioButton rdbtnJoueurAutoTrois2 = new JRadioButton("Joueur Auto 2");
+		JRadioButton rdbtnJoueurAutoTrois2 = new JRadioButton("Joueur MinimaxAggro2");
 		buttonGroup2.add(rdbtnJoueurAutoTrois2);
 		choix2.add(rdbtnJoueurAutoTrois2);
 		
-		JRadioButton rdbtnJoueurAutoQuatre2 = new JRadioButton("Joueur Auto 3");
+		JRadioButton rdbtnJoueurAutoQuatre2 = new JRadioButton("Joueur MinimaxAggro3");
 		buttonGroup2.add(rdbtnJoueurAutoQuatre2);
 		choix2.add(rdbtnJoueurAutoQuatre2);
 		
-	
+		JRadioButton rdbtnJoueurAutoCinq2 = new JRadioButton("Joueur AlphaBeta1");
+		buttonGroup2.add(rdbtnJoueurAutoCinq2);
+		choix2.add(rdbtnJoueurAutoCinq2);
+		
+		JRadioButton rdbtnJoueurAutoSix2 = new JRadioButton("Joueur AlphaBetaAggro2");
+		buttonGroup2.add(rdbtnJoueurAutoSix2);
+		choix2.add(rdbtnJoueurAutoSix2);
+		
+		JRadioButton rdbtnJoueurAutoSept2 = new JRadioButton("Joueur AlphaBetaAggro3");
+		buttonGroup2.add(rdbtnJoueurAutoSept2);
+		choix2.add(rdbtnJoueurAutoSept2);
 		
 		JPanel bas = new JPanel();
 		panel.add(bas, BorderLayout.SOUTH);
