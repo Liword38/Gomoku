@@ -17,6 +17,10 @@ public abstract class JoueurAvecGrille extends Joueur {
 	public Grille getGrille() {
 		return grille;
 	}
+	
+	public void setGrille(Grille g) {
+		this.grille=g;
+	}
 
 	/**
 	 * ajoute le marqueur adverse sur la grille et vérifie si l'adversaire a gagné

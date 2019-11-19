@@ -140,17 +140,17 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	}
 
 	// ??????????????????
-	public void setClicActive(boolean active) {
-		SwingUtilities.invokeLater(() -> {
-			this.setEnabled(false);
-			for (JButton[] ligne : cases) {
-				for (JButton bt : ligne) {
-					bt.setEnabled(active);
-				}
-			}
-			this.setEnabled(true);
-		});
-	}
+//	public void setClicActive(boolean active) {
+//		SwingUtilities.invokeLater(() -> {
+//			this.setEnabled(false);
+//			for (JButton[] ligne : cases) {
+//				for (JButton bt : ligne) {
+//					bt.setEnabled(active);
+//				}
+//			}
+//			this.setEnabled(true);
+//		});
+//	}
 
 	/**
 	 * Methode appelee lorsque l'on clique sur une case de la grille. Elle
@@ -159,7 +159,7 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.setClicActive(false);
+		//this.setClicActive(false);
 		coordonneeSelectionnee = ((JButtonCoordonnee) e.getSource()).getCoordonnee();
 		synchronized (this) {
 			this.notifyAll();
@@ -173,7 +173,7 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	 * @return la coordonnee selectionnee
 	 */
 	public synchronized Coordonnee getCoordonneeSelectionnee() {
-		this.setClicActive(true);
+	//	this.setClicActive(true);
 		try {
 			this.wait();
 		} catch (InterruptedException ex) {
